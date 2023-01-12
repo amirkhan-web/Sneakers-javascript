@@ -1,58 +1,110 @@
 {
-  "items":[
+  "items": [
     {
-      "id":1,
-      "name":"Nike Air Max 270",
-      "gender":"men",
-      "brand":"nike",
-      "price":4000,
-      "category":"run",
-      "images":"https://www.basketshop.ru/files/catalog/34095/AH8050-002(6).JPG"
+      "id": "1",
+      "name": "Nike Air Max 270",
+      "gender": "men",
+      "brand": "nike",
+      "price": 4000,
+      "category": "run",
+      "count": 1,
+      "allImages": [
+        "https://www.basketshop.ru/files/catalog/34095/AH8050-002(6).JPG",
+        "https://www.basketshop.ru/files/catalog/39940/CK6483-001(8).JPG",
+        "https://cdn.sptmr.ru/upload/resize_cache/iblock/fef/800_800_1/48167470299.jpg"
+      ],
+      "images": "https://img.brandshop.ru/cache/products/3/371591-02-0_496x496.jpg"
     },
     {
-      "id":2,
-      "name":"Demix Sprinter Vibe",
-      "gender":"men",
-      "brand":"demix",
-      "price":5200,
-      "category":"run",
-      "images":"https://www.basketshop.ru/files/catalog/39940/CK6483-001(8).JPG"
+      "id": "2",
+      "name": "Demix Sprinter Vibe",
+      "gender": "men",
+      "brand": "demix",
+      "price": 5200,
+      "category": "run",
+      "count": 1,
+      "allImages": [
+        "",
+        "",
+        ""
+      ],
+      "images": "https://img.brandshop.ru/cache/products/3/369601-08-0_496x496.jpg"
     },
     {
-      "id":3,
-      "name":"Adidas Air Mini",
-      "gender":"men",
-      "brand":"adidas",
-      "price":4500,
-      "category":"train",
-      "images":"https://cdn.sptmr.ru/upload/resize_cache/iblock/fef/800_800_1/48167470299.jpg"
+      "id": "3",
+      "name": "Adidas Air Mini",
+      "gender": "men",
+      "brand": "adidas",
+      "price": 4500,
+      "category": "train",
+      "count": 1,
+      "allImages": [
+        "",
+        "",
+        ""
+      ],
+      "images": "https://img.brandshop.ru/cache/products/3/369601-09-0_496x496.jpg"
     },
     {
-      "id":4,
-      "name":"PUMA RS-Z Core",
-      "gender":"men",
-      "brand":"adidas",
-      "price":1500,
-      "category":"street",
-      "images":"https://www.basketshop.ru/files/catalog/42319/38359001(3).JPG"
+      "id": "4",
+      "name": "PUMA RS-Z Core",
+      "gender": "men",
+      "brand": "adidas",
+      "price": 1500,
+      "category": "street",
+      "count": 1,
+      "allImages": [
+        "",
+        "",
+        ""
+      ],
+      "images": "https://img.brandshop.ru/cache/products/n/n774004-01y01y615-0_496x496.jpg"
     },
     {
-      "id":5,
-      "name":"GFW",
-      "gender":"women",
-      "brand":"gloria",
-      "price":6500,
-      "category":"street",
-      "images":"https://cdn.demix.ru/upload/mdm/media_content/resize/076/1000_1000_f08a/58694940299.jpg"
+      "id": "5",
+      "name": "GFW",
+      "gender": "women",
+      "brand": "gloria",
+      "price": 6500,
+      "category": "street",
+      "count": 1,
+      "allImages": [
+        "",
+        "",
+        ""
+      ],
+      "images": "https://img.brandshop.ru/cache/products/n/n979002-737pin001-0_496x496.jpg"
     },
     {
-      "id":6,
-      "name":"SINSAY",
-      "gender":"women",
-      "brand":"OOX",
-      "price":4100,
-      "category":"run",
-      "images":"https://static.sinsay.com/media/catalog/product/cache/1200/a4e40ebdc3e371adff845072e1c73f37/2/8/2871B-00X-001_3.jpg"
+      "id": "6",
+      "name": "SINSAY",
+      "gender": "women",
+      "brand": "OOX",
+      "price": 4100,
+      "category": "run",
+      "count": 1,
+      "allImages": [
+        "",
+        "",
+        ""
+      ],
+      "images": "https://img.brandshop.ru/cache/products/n/n979002-22y13y615-0_496x496.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "id": "4",
+      "name": "PUMA RS-Z Core",
+      "price": 1500,
+      "images": "https://img.brandshop.ru/cache/products/n/n774004-01y01y615-0_496x496.jpg",
+      "count": 1
+    },
+    {
+      "id": "2",
+      "name": "Demix Sprinter Vibe",
+      "price": 5200,
+      "images": "https://img.brandshop.ru/cache/products/3/369601-08-0_496x496.jpg",
+      "count": 1
     }
   ]
 }

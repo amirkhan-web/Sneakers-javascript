@@ -1,10 +1,38 @@
+%search {
+  color: #000;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+@mixin search-form($w, $h) {
+  width: $w;
+  height: $h;
+  @extend %search;
+}
+
+@mixin button($w, $h, $p, $r) {
+  width: $w;
+  height: $h;
+  padding: $p;
+  border-radius: $r;
+  box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  border: none;
+}
+
 .lists {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 
   &__item {
-    margin: 0 20px;
+    cursor: pointer;
+    margin: 0 20px 20px 0;
+
+    &-name {
+      color: #000;
+      text-decoration: none;
+    }
   }
 
   button {
@@ -15,4 +43,59 @@
     border-radius: 5px;
     border: 1px solid #ccc;
   }
+}
+
+.search-form {
+  margin-top: 10px;
+  &__item {
+    @include search-form(300px, 40px);
+  }
+}
+
+.select-category + div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dropdown {
+  width: 200px;
+
+  &:last-child {
+    margin-left: 10px;
+  }
+
+  &__btn {
+    @include button(200px, null, 10px, 5px);
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  &__list {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    span {
+      display: block;
+      background-color: #fff;
+      padding: 5px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+  
+      &:first-child {
+        margin-top: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+}
+
+.block {
+  display: flex;
 }

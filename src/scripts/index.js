@@ -5,5 +5,5 @@ import '../scss/app.scss';
 /* ================== STYLES ================== */
 
 /* ================== JAVASCRIPT ================== */
-import '../components/items';
+import './items';
 /* ================== JAVASCRIPT ================== */
