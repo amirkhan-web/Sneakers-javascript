@@ -1,0 +1,26 @@
+.cart {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  right: -25%;
+  top: 0;
+  background-color: rgb(238, 238, 238);
+  transition: .3s all;
+
+  &__inner {
+    padding: 10px;
+
+    > button {
+      margin-bottom: 30px;
+
+      ~ div {
+        margin-bottom: 10px;
+        border: 1px solid red;
+      }
+    }
+  }
+
+  &.active {
+    right: 0;
+  }
+}

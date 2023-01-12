@@ -1,0 +1,28 @@
+.details {
+  width: 100%;
+
+  &__item {
+    list-style: none;
+
+    > div span {
+      font-size: 23px;
+    }
+
+    > div p {
+      font-size: 20px;
+    }
+  }
+
+  &__image-all {
+    cursor: pointer;
+
+    &--active {
+      border: 1px solid red;
+    }
+  }
+
+  &__data {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
