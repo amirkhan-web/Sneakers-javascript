@@ -1,0 +1,21 @@
+.countdown {
+  width: 100%;
+
+  &__inner {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    span {
+      font-size: 25px;
+      margin: 0 20px;
+      background-color: rgba(65, 26, 0, 0.16);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    strong {
+      font-size: 25px;
+    }
+  }
+}

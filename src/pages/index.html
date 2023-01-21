@@ -5,56 +5,82 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
 </head>
 <body>
   <div class="container">
-    <div>
-      <div class="filters">
-        <div class="filters__inner">
-          <select class="select-price">
-            <option value="">По умолчанию</option>
-            <option value="asc">По возрастанию</option>
-            <option value="desc">По убыванию</option>
-          </select>
-          <select class="select-category">
-            <option value="">По умолчанию</option>
-            <option value="street">Уличные</option>
-            <option value="run">Беговые</option>
-            <option value="train">Тренировочные</option>
-          </select>
-          <button class="cart__btn">Cart</button>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide banner">
+          <img width="100%" height="300px"  src="../images/banner-white-sneakers-orange-background-there-room-text-198246157.jpg" alt="" class="banner-content">
         </div>
-        <!-- <div class="block">
-          <div class="dropdown">
-            <button class="dropdown__btn">По умолчанию</button>
-            <div class="dropdown__list">
-              <span class="dropdown__list-item">По умолчанию</span>
-              <span class="dropdown__list-item">По возрастанию</span>
-              <span class="dropdown__list-item">По убыванию</span>
-            </div>
-          </div>
-          <div class="dropdown">
-            <button class="dropdown__btn">По умолчанию</button>
-            <div class="dropdown__list">
-              <span class="dropdown__list-item">По умолчанию</span>
-              <span class="dropdown__list-item">Уличные</span>
-              <span class="dropdown__list-item">Беговые</span>
-              <span class="dropdown__list-item">Тренировочные</span>
-            </div>
-          </div>
-        </div> -->
+        <div class="swiper-slide banner">
+          <img width="100%" height="300px"  src="../images/banner-white-sneakers-orange-background-there-room-text-198246157.jpg" alt="" class="banner-content">
+        </div>
+        <div class="swiper-slide banner">
+          <img width="100%" height="300px"  src="../images/banner-white-sneakers-orange-background-there-room-text-198246157.jpg" alt="" class="banner-content">
+        </div>
+        <div class="swiper-slide banner">
+          <img width="100%" height="300px"  src="../images/banner-white-sneakers-orange-background-there-room-text-198246157.jpg" alt="" class="banner-content">
+        </div>
       </div>
-      <div class="cart"></div>
-        <!-- <div class="cart">
-          
-        </div> -->
-      <div class="gender"></div>
-      <form class="search-form">
-        <input type="text" placeholder="Search..." class="search-form__item">
-        <div class="search-list"></div>
-      </form>
-      <ul class="lists"></ul>
+      <div class="swiper-pagination"></div>
     </div>
+    <div>
+      <div>
+        <div class="cart"></div>
+        <div class="gender"></div>
+        <div>
+          <div class="dropdown">
+          </div>
+          <form class="search-form">
+            <input type="text" placeholder="Search..." class="search-form__item">
+            <div class="search-list"></div>
+          </form>
+        </div>
+        <button class="cart__btn">Cart</button>
+        <div class="countdown">
+          <div class="countdown__inner">
+            <span class="days">07</span>
+            <strong>:</strong>
+            <span class="hours">04</span>
+            <strong>:</strong>
+            <span class="minutes">34</span>
+            <strong>:</strong>
+            <span class="seconds">03</span>
+          </div>
+        </div>
+      </div>
+      <div class="login-wrapper">
+        <button class="signup">
+          Войти
+        </button>
+        <div>
+          <div>
+            <input type="checkbox" value="1.5">
+            <label>Бонус 10%</label>
+          </div>
+          <div>
+            <input type="checkbox" value="2.5">
+            <label>Бонус 20%</label>
+          </div>
+          <div>
+            <input type="checkbox" value="3.5">
+            <label>Бонус 30%</label>
+          </div>
+          <div>
+            <input type="range" max="6500">
+          </div>
+        </div>
+      </div>
+      <div class="modal"></div>
+    </div>
+    <ul class="lists"></ul>
   </div>
 </body>
 </html>

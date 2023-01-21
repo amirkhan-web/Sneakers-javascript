@@ -91,20 +91,12 @@
       "images": "https://img.brandshop.ru/cache/products/n/n979002-22y13y615-0_496x496.jpg"
     }
   ],
-  "cart": [
+  "cart": [],
+  "users": [
     {
-      "id": "4",
-      "name": "PUMA RS-Z Core",
-      "price": 1500,
-      "images": "https://img.brandshop.ru/cache/products/n/n774004-01y01y615-0_496x496.jpg",
-      "count": 1
-    },
-    {
-      "id": "2",
-      "name": "Demix Sprinter Vibe",
-      "price": 5200,
-      "images": "https://img.brandshop.ru/cache/products/3/369601-08-0_496x496.jpg",
-      "count": 1
+      "email": "ww",
+      "password": "aa",
+      "id": 1
     }
   ]
 }
