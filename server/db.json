@@ -93,10 +93,6 @@
   ],
   "cart": [],
   "users": [
-    {
-      "email": "ww",
-      "password": "aa",
-      "id": 1
-    }
+   
   ]
 }

@@ -32,3 +32,13 @@
     display: block;
   }
 }
+
+.form {
+  &-input--danger {
+    border: 1px solid red;
+  
+    &::placeholder {
+      color: red;
+    }
+  }
+}

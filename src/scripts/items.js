@@ -13,10 +13,6 @@ const modal = document.querySelector('.modal');
 const signup = document.querySelector('.signup');
 const loginWrapper = document.querySelector('.login-wrapper');
 const bonuses = document.querySelectorAll('input[type="checkbox"]');
-const range = document.querySelector('input[type="range"]');
-// const buttonClose = modal.querySelector('#close');
-
-// console.log(buttonClose);
 
 if (!details) {
   const swiper = new Swiper('.swiper', {
@@ -28,6 +24,10 @@ if (!details) {
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
   });
 }
@@ -62,7 +62,7 @@ const createModal = () => {
     <div class='modal__inner'>
       <div class='modal__content'>
         <h2>Modal</h2>
-        <button id="close">Close</button>
+        <button data-type="close-modal" id="close">Close</button>
       </div>
       <form class='form'>
         <div>
@@ -77,7 +77,7 @@ const createModal = () => {
   `
   );
 
-  document.body.insertAdjacentElement('beforeend', modal);
+  !details ? document.body.insertAdjacentElement('beforeend', modal) : null;
 
   return modal;
 };
@@ -117,6 +117,13 @@ const renderModal = () => {
       password: password.value,
     };
 
+    if (!userData.email && !userData.password) {
+      email.classList.add('form-input--danger');
+      password.classList.add('form-input--danger');
+
+      return;
+    }
+
     await login(userData).then((data) => {
       localStorage.setItem('user', JSON.stringify(data));
       modal.classList.remove('active');
@@ -125,36 +132,57 @@ const renderModal = () => {
       signup.textContent = data.email;
       logoutBtn.textContent = 'Выйти';
 
-      data ? loginWrapper.insertAdjacentElement('beforeend', logoutBtn) : null;
+      data && !details
+        ? loginWrapper.insertAdjacentElement('beforeend', logoutBtn)
+        : null;
     });
   });
 
   return {
     open() {
       modal.classList.add('active');
+      modal
+        .querySelector('.modal__inner')
+        .addEventListener('click', (event) => {
+          event.stopPropagation();
+        });
     },
     close() {
       modal.classList.remove('active');
     },
+    outside() {
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal && modal.matches('.modal')) {
+          modal.classList.remove('active');
+        }
+      });
+    },
   };
 };
 
-signup.addEventListener('click', renderModal().open);
-// buttonClose.addEventListener('click', renderModal().close);
+if (!details) {
+  const { open, outside } = renderModal();
+  signup.addEventListener('click', open);
+  document.addEventListener('click', outside);
+}
 
 function getUser() {
   return JSON.parse(localStorage.getItem('user') || null);
 }
 
 const renderDataFromLocalStorage = () => {
-  const dataUser = getUser();
-  const logoutBtn = renderDocumentList('button', ['logout']);
-  logoutBtn.textContent = 'Выйти';
+  if (!details) {
+    const dataUser = getUser();
+    const logoutBtn = renderDocumentList('button', ['logout']);
+    logoutBtn.textContent = 'Выйти';
 
-  signup.textContent = dataUser ? dataUser.email : 'Войти';
-  dataUser ? loginWrapper.insertAdjacentElement('beforeend', logoutBtn) : null;
+    signup.textContent = dataUser ? dataUser.email : 'Войти';
+    dataUser
+      ? loginWrapper.insertAdjacentElement('beforeend', logoutBtn)
+      : null;
 
-  logoutBtn.addEventListener('click', logout);
+    logoutBtn.addEventListener('click', logout);
+  }
 };
 
 renderDataFromLocalStorage();
@@ -165,7 +193,7 @@ const countDownTimer = () => {
   const minutesLeft = new Date().getMinutes();
   const secondsLeft = new Date().getSeconds();
 
-  days.textContent = daysLeft > 10 ? daysLeft : '0' + daysLeft;
+  days.textContent = daysLeft < 10 ? '0' + daysLeft : daysLeft;
   hours.textContent = hoursLeft < 10 ? '0' + hoursLeft : hoursLeft;
   minutes.textContent = minutesLeft < 10 ? '0' + minutesLeft : minutesLeft;
   seconds.textContent = secondsLeft < 10 ? '0' + secondsLeft : secondsLeft;
@@ -263,10 +291,6 @@ const data = [
     filter: '',
     event: 'click',
   },
-  {
-    selector: !details ? bonuses : null,
-    event: 'input',
-  },
 ];
 
 let cartData = [];
@@ -332,10 +356,32 @@ const renderCard = (data) => {
         <button class='lists__item-add'>Добавить</button>
       `;
 
-    lists.insertAdjacentElement('beforeend', listsItem);
+    !details ? lists.insertAdjacentElement('beforeend', listsItem) : null;
 
     return lists;
   });
+
+  const price = lists.querySelectorAll('.lists__item-price');
+
+  !details
+    ? bonuses.forEach((bonus) => {
+        bonus.addEventListener('input', () => {
+          price.forEach((p) => {
+            if (bonus.checked) {
+              const currentPrice =
+                parseFloat(p.textContent) * parseFloat(bonus.value);
+
+              !details ? (p.textContent = currentPrice + ' р.') : null;
+            } else if (!bonus.checked) {
+              const currentPrice =
+                parseFloat(p.textContent) / parseFloat(bonus.value);
+
+              !details ? (p.textContent = currentPrice + ' р.') : null;
+            }
+          });
+        });
+      })
+    : null;
 };
 
 const server = {
@@ -484,35 +530,6 @@ const eventListenerFiltered = (currentData) => {
             getDataPage();
           });
         });
-      } else if (item.event === 'input') {
-        bonuses.forEach((bonus) => {
-          const lists = renderCart(cartData);
-          console.log(lists);
-        });
-        // Array.prototype.forEach.call(item.selector, (node) => {
-
-        // node.forEach((bonus) => {
-        //   const lists = renderCard();
-
-        //   const price = lists.querySelectorAll('.lists__item-price');
-
-        //   bonus.addEventListener('input', () => {
-        //     price.forEach((p) => {
-        //       if (bonus.checked) {
-        //         const currentPrice =
-        //           parseFloat(p.textContent) * parseFloat(bonus.value);
-
-        //         p.textContent = currentPrice + ' р.';
-        //       } else if (!bonus.checked) {
-        //         const currentPrice =
-        //           parseFloat(p.textContent) / parseFloat(bonus.value);
-
-        //         p.textContent = currentPrice + ' р.';
-        //       }
-        //     });
-        //   });
-        // });
-        // });
       }
     }
   });

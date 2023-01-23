@@ -15,6 +15,7 @@
   top: 0;
   background-color: rgb(238, 238, 238);
   transition: .3s all;
+  z-index: 1000;
 
   &__inner {
     padding: 10px;
