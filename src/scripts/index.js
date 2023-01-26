@@ -6,4 +6,11 @@ import '../scss/app.scss';
 
 /* ================== JAVASCRIPT ================== */
 import './items';
+import './swiper';
+import './gender';
+import './search';
+import './timer';
+import './modal';
+import './cart';
+import './details';
 /* ================== JAVASCRIPT ================== */

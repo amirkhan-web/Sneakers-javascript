@@ -1,0 +1,15 @@
+export const lists = document.querySelector('ul');
+export const gender = document.querySelector('.gender');
+export const details = document.querySelector('.details__data');
+export const cart = document.querySelector('.cart');
+export const cartBtn = document.querySelector('.cart__btn');
+export const searchForm = document.querySelector('.search-form__item');
+export const dropdown = document.querySelector('.dropdown');
+export const days = document.querySelector('.days');
+export const hours = document.querySelector('.hours');
+export const minutes = document.querySelector('.minutes');
+export const seconds = document.querySelector('.seconds');
+export const modal = document.querySelector('.modal');
+export const signup = document.querySelector('.signup');
+export const loginWrapper = document.querySelector('.login-wrapper');
+export const bonuses = document.querySelectorAll('input[type="checkbox"]');
