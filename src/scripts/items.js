@@ -1,7 +1,8 @@
 import { lists, details, bonuses } from './selectors';
 
-import { apiData, dataFilter } from '../api/api';
+import { dataFilter } from '../api/api';
 import { renderDocumentList } from '../utils/renderDocumentList';
+import { getItems } from '../api/api-items';
 
 let hash = location.hash.substring(1);
 
@@ -50,7 +51,7 @@ export const renderCard = (data) => {
   }
 };
 
-const data = apiData.getItems(renderCard);
+getItems(renderCard);
 
 const eventListenerFiltered = (currentData) => {
   currentData.map((item) => {

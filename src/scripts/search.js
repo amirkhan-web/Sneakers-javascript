@@ -1,4 +1,3 @@
-import { apiData } from '../api/api';
 import { renderCard } from './items';
 import { details, searchForm } from './selectors';
 

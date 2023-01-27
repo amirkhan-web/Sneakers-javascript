@@ -1,4 +1,9 @@
-import { apiData } from '../api/api';
+import {
+  getCart,
+  updateCount,
+  updateCountMinus,
+  updateCountPlus,
+} from '../api/api-cart';
 import { renderDocumentList } from '../utils/renderDocumentList';
 import { cart, cartBtn, lists, details } from './selectors';
 
@@ -86,13 +91,13 @@ const addToCart = (event) => {
     const foundItems = cartData.find((item) => item.id === id);
 
     if (foundItems) {
-      apiData.updateCount(id, foundItems.count);
+      updateCount(id, foundItems.count);
       updateCountDataPlus();
       renderCart(cartData);
     } else {
       cartData.push(newItem);
 
-      apiData.addToCart(newItem);
+      addToCart(newItem);
 
       renderCart(cartData);
     }
@@ -106,7 +111,7 @@ const removeCart = async ({ target }) => {
 
     cartData = cartData.filter((item) => item.id !== id);
 
-    apiData.removeCart(id);
+    removeCart(id);
 
     parentNode.remove();
   }
@@ -121,7 +126,7 @@ const updateCountPlusEvent = ({ target }) => {
 
     updateCountDataPlus();
 
-    apiData.updateCountPlus(id, foundItems.count);
+    updateCountPlus(id, foundItems.count);
 
     renderCart(cartData);
   }
@@ -136,13 +141,13 @@ const updateCountMinusEvent = ({ target }) => {
 
     updateCountDataMinus();
 
-    apiData.updateCountMinus(id, foundItems.count);
+    updateCountMinus(id, foundItems.count);
 
     renderCart(cartData);
   }
 };
 
-apiData.getCart(renderCart);
+getCart(renderCart);
 
 !details ? lists.addEventListener('click', addToCart) : null;
 !details ? cart.addEventListener('click', removeCart) : null;

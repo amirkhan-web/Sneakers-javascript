@@ -1,4 +1,4 @@
-import { apiData } from '../api/api';
+import { login } from '../api/api-login';
 import { renderDocumentList } from '../utils/renderDocumentList';
 import { details, loginWrapper, modal, signup } from './selectors';
 
@@ -55,7 +55,7 @@ const renderModal = () => {
       return;
     }
 
-    await apiData.login(userData).then((data) => {
+    await login(userData).then((data) => {
       localStorage.setItem('user', JSON.stringify(data));
       modal.classList.remove('active');
       const logoutBtn = renderDocumentList('button', ['logout']);

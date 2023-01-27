@@ -1,4 +1,4 @@
-import { apiData } from '../api/api';
+import { getDataPage } from '../api/api-items';
 import { renderDocumentList } from '../utils/renderDocumentList';
 import { details } from './selectors';
 
@@ -54,4 +54,4 @@ window.addEventListener('hashchange', () => {
   hash = location.hash.substring(1);
 });
 
-apiData.getDataPage(renderDetailsPage, hash);
+getDataPage(renderDetailsPage, hash);
